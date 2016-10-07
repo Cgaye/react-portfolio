@@ -41787,7 +41787,7 @@
 	            " ",
 	            React.createElement(
 	              "a",
-	              null,
+	              { target: "_blank", href: "https://github.com/Cgaye/react-portfolio" },
 	              " ",
 	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/tt4gqj3x6oanemn/Default.jpg?dl=0',
 	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '4') }),

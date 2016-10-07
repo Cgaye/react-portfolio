@@ -51,7 +51,7 @@ var Projects = React.createClass({
                   <div className = 'col-sm-4'> <a target = '_blank' href = 'http://codepen.io/doppleganger07/full/dXyXBZ/'> <img src = {'https://dl.dropboxusercontent.com/s/y5e1ea4nwuu4b8i/Weather%20App.jpg?dl=0'} 
                     className = 'img-responsive img-rounded' onMouseOver = {this.handleSelect.bind(this, '3')} /> </a> </div>
                     
-                  <div className = 'col-sm-4'> <a> <img src = {'https://dl.dropboxusercontent.com/s/tt4gqj3x6oanemn/Default.jpg?dl=0'} 
+                  <div className = 'col-sm-4'> <a target = '_blank' href = 'https://github.com/Cgaye/react-portfolio' > <img src = {'https://dl.dropboxusercontent.com/s/tt4gqj3x6oanemn/Default.jpg?dl=0'} 
                     className = 'img-responsive img-rounded' onMouseOver = {this.handleSelect.bind(this, '4')} /> </a> </div>
                     
                   </div>
