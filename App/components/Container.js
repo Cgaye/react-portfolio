@@ -56,8 +56,8 @@ var Container = React.createClass({
           transitionName="example" 
           transitionAppear={true} 
           transitionAppearTimeout={500}
-           transitionEnterTimeout={500} 
-          transitionLeaveTimeout={300}>
+           transitionEnterTimeout={700}
+          transitionLeaveTimeout={500}>
         
                {componentToRender} 
             
