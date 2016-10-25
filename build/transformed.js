@@ -21997,11 +21997,7 @@
 	                    transitionAppearTimeout: 500,
 	                    transitionEnterTimeout: 500,
 	                    transitionLeaveTimeout: 300 },
-	                React.createElement(
-	                    "div",
-	                    null,
-	                    componentToRender
-	                )
+	                componentToRender
 	            )
 	        );
 	    }
