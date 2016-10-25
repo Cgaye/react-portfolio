@@ -21948,12 +21948,7 @@
 	var Default = __webpack_require__(/*! ./Default */ 437);
 	var ReactCSSTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 429);
 	
-	var componentToRender = React.createElement(
-	    ReactCSSTransitionGroup,
-	    { transitionName: "example",
-	        transitionAppear: true, transitionAppearTimeout: 500 },
-	    React.createElement(Default, null)
-	);
+	var componentToRender = React.createElement(Default, { key: 'default' });
 	
 	var Container = React.createClass({
 	    displayName: "Container",
@@ -21965,40 +21960,23 @@
 	    },
 	
 	    componentWillUpdate: function (nextProps, nextState) {
+	
+	        var page = this.state.page;
+	
 	        if (nextState.page == 'Default') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Default, null)
-	            );
+	            componentToRender = React.createElement(Default, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'Projects') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Projects, null)
-	            );
+	            componentToRender = React.createElement(Projects, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'Contact') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Contact, null)
-	            );
+	            componentToRender = React.createElement(Contact, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'About') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(AboutMe, null)
-	            );
+	            componentToRender = React.createElement(AboutMe, { key: nextState.page });
 	        }
 	    },
 	
@@ -22012,9 +21990,18 @@
 	            null,
 	            React.createElement(Navbar, { pageSelected: this.pageSelected }),
 	            React.createElement(
-	                "div",
-	                null,
-	                componentToRender
+	                ReactCSSTransitionGroup,
+	                {
+	                    transitionName: "example",
+	                    transitionAppear: true,
+	                    transitionAppearTimeout: 500,
+	                    transitionEnterTimeout: 500,
+	                    transitionLeaveTimeout: 300 },
+	                React.createElement(
+	                    "div",
+	                    null,
+	                    componentToRender
+	                )
 	            )
 	        );
 	    }
@@ -42791,6 +42778,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(/*! react */ 1);
+	var ReactCSSTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 429);
 	
 	var Default = React.createClass({
 	    displayName: 'Default',
@@ -42799,7 +42787,9 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' } }),
+	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0',
+	                style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' }
+	            }),
 	            React.createElement(
 	                'div',
 	                { className: 'container center-block' },
