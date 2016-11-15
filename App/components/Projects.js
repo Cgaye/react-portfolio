@@ -4,7 +4,9 @@ var React = require("react");
 
 var containerStyles = {
 
-    padding: '4px'
+    padding: '4px',
+    maxHeight: '700px',
+    maxWidth: '700px'
 };
 
 
@@ -31,7 +33,7 @@ var Projects = React.createClass({
     },
     render: function() {
         return(
-            <div>
+            <div style = {{maxWidth: '100%'}}>
             
             <h1 style = {{textAlign: 'center'}}>Personal Projects</h1>
             <div className = 'container center-block well' style = {containerStyles}>

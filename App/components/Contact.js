@@ -4,10 +4,10 @@ var ContactMe = React.createClass({
     render: function () {
         return (
             <div>
-      <img src = 'https://dl.dropboxusercontent.com/s/caolun723f8dojq/Contact.jpg?dl=0' style = {{flex: 1, resizeMode: 'stretch', opacity: '0.2'}} />
+      <img src = 'https://dl.dropboxusercontent.com/s/caolun723f8dojq/Contact.jpg?dl=0' style = {{flex: 1, resizeMode: 'stretch', opacity: '0.2', maxHeight: '100%', maxWidth: '100%'}} />
 
 
-        <div className = 'container well' style = {{textAlign: 'center' , position: 'absolute', top: '350px', left: '400px', fontFamily: 'Arial-Black'}} >
+        <div className = 'container well' style = {{textAlign: 'center' , position: 'absolute', top: '350px', left: '200px', fontFamily: 'Arial-Black'}} >
          <h1>
               Contact Me:
          </h1>
@@ -25,6 +25,10 @@ var ContactMe = React.createClass({
     
     <br />
      <a target="_blank" href="https://github.com/Cgaye">GitHub</a>
+     
+     <br />
+     
+     <p> Phone: 404-402-2857 </p>
   </p> 
         
         

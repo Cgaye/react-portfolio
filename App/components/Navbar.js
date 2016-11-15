@@ -13,7 +13,7 @@ var Navigation = React.createClass({
   render: function () {
       return (
       <div>
-       <Navbar style = {{height: '150px', textAlign: 'center', paddingTop: '50px'}}>
+       <Navbar style = {{height: '150px', textAlign: 'center', paddingTop: '50px', marginBottom: '0px'}}>
     <Navbar.Header >
       <Navbar.Brand>
         <a>Curtis J Gaye <br /> Portfolio Page</a>

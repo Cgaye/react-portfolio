@@ -7,14 +7,7 @@ var Default = require("./Default");
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
-var componentToRender = 
- <ReactCSSTransitionGroup transitionName = "example"
-    transitionAppear = {true} transitionAppearTimeout = {500}>         
-
-<Default />
-
-</ReactCSSTransitionGroup>
-;
+var componentToRender = <Default key = {'default'}/>;
 
 var Container = React.createClass({
     getInitialState: function() {
@@ -24,42 +17,25 @@ var Container = React.createClass({
     },
    
    
+   
     componentWillUpdate: function (nextProps, nextState) {
+
+        
         if(nextState.page == 'Default') { 
-            componentToRender = <ReactCSSTransitionGroup transitionName = "example"
-    transitionAppear = {true} transitionAppearTimeout = {500}>         
-
-<Default />
-
-</ReactCSSTransitionGroup>
-; }
+            componentToRender = <Default key = {nextState.page} />;
+            }
             
         if (nextState.page == 'Projects') {
-            componentToRender = <ReactCSSTransitionGroup transitionName = "example"
-    transitionAppear = {true} transitionAppearTimeout = {500}>         
-
-<Projects />
-
-</ReactCSSTransitionGroup>; 
+            componentToRender =  <Projects key = {nextState.page} />; 
 
         }
             
         if (nextState.page == 'Contact') {
-            componentToRender = <ReactCSSTransitionGroup transitionName = "example"
-    transitionAppear = {true} transitionAppearTimeout = {500}>         
-
-<Contact />
-
-</ReactCSSTransitionGroup>;
+            componentToRender = <Contact key = {nextState.page} />;
         }
         
         if (nextState.page == 'About') {
-            componentToRender =<ReactCSSTransitionGroup transitionName = "example"
-    transitionAppear = {true} transitionAppearTimeout = {500}>         
-
-<AboutMe />
-
-</ReactCSSTransitionGroup>;
+            componentToRender =   <AboutMe key = {nextState.page} />;
         }
         
                 
@@ -75,9 +51,16 @@ var Container = React.createClass({
         return (
             <div>
              <Navbar pageSelected = {this.pageSelected} />
-            <div>
+             <ReactCSSTransitionGroup 
+          transitionName="example" 
+          transitionAppear={true} 
+          transitionAppearTimeout={500}
+          transitionEnterTimeout={500} 
+          transitionLeaveTimeout={500}>
+        
                {componentToRender} 
-             </div>
+            
+             </ReactCSSTransitionGroup>
             </div>
             
             );

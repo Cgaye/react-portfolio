@@ -21948,12 +21948,7 @@
 	var Default = __webpack_require__(/*! ./Default */ 437);
 	var ReactCSSTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 429);
 	
-	var componentToRender = React.createElement(
-	    ReactCSSTransitionGroup,
-	    { transitionName: "example",
-	        transitionAppear: true, transitionAppearTimeout: 500 },
-	    React.createElement(Default, null)
-	);
+	var componentToRender = React.createElement(Default, { key: 'default' });
 	
 	var Container = React.createClass({
 	    displayName: "Container",
@@ -21965,40 +21960,21 @@
 	    },
 	
 	    componentWillUpdate: function (nextProps, nextState) {
+	
 	        if (nextState.page == 'Default') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Default, null)
-	            );
+	            componentToRender = React.createElement(Default, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'Projects') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Projects, null)
-	            );
+	            componentToRender = React.createElement(Projects, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'Contact') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(Contact, null)
-	            );
+	            componentToRender = React.createElement(Contact, { key: nextState.page });
 	        }
 	
 	        if (nextState.page == 'About') {
-	            componentToRender = React.createElement(
-	                ReactCSSTransitionGroup,
-	                { transitionName: "example",
-	                    transitionAppear: true, transitionAppearTimeout: 500 },
-	                React.createElement(AboutMe, null)
-	            );
+	            componentToRender = React.createElement(AboutMe, { key: nextState.page });
 	        }
 	    },
 	
@@ -22012,8 +21988,13 @@
 	            null,
 	            React.createElement(Navbar, { pageSelected: this.pageSelected }),
 	            React.createElement(
-	                "div",
-	                null,
+	                ReactCSSTransitionGroup,
+	                {
+	                    transitionName: "example",
+	                    transitionAppear: true,
+	                    transitionAppearTimeout: 500,
+	                    transitionEnterTimeout: 500,
+	                    transitionLeaveTimeout: 500 },
 	                componentToRender
 	            )
 	        );
@@ -22049,7 +22030,7 @@
 	      null,
 	      React.createElement(
 	        Navbar,
-	        { style: { height: '150px', textAlign: 'center', paddingTop: '50px' } },
+	        { style: { height: '150px', textAlign: 'center', paddingTop: '50px', marginBottom: '0px' } },
 	        React.createElement(
 	          Navbar.Header,
 	          null,
@@ -41691,13 +41672,15 @@
 	
 	var containerStyles = {
 	
-	  padding: '4px'
+	  padding: '4px',
+	  maxHeight: '700px',
+	  maxWidth: '700px'
 	};
 	
 	var projectText = ["Real Time Voting App. This is a real-time updating voting app I created using Socket IO, NodeJS, ChartJS, Express (with Handlebars) and MongoDB. The charts update in real time as people vote without having to refresh or reload the page. Try it yourself! Create a poll (or choose one that has already been created to vote on), vote on it and view the chart. If you open a new tab or window and vote again, you should see the original chart was updated with the current data! The code for the app is on GitHub, and that is where you can find future tweaks I plan to make. Now, I know what you're thinking. Don't worry, right now the code that prevents you from voting multiple times has been removed. The link takes you to the app I released on Heroku.", "This program is the very familiar and classic Simon Says game. When the game starts, you must copy the sequence of button presses the game gives you. After completing the sequence, the game will give you the same sequence again, but this time one additional push. The object is to get as far as you can without making a mistake.", "This is self-explanatory. A basic calculator at the moment, but more buttons will be added in the future.", "This is a simple app that is designed to display the local weather (it takes your location automatically). The icon changes depending on what the weather is.", "This portfolio page! Created with ReactJS, Node, Bootstrap and Express"];
 	
 	var Projects = React.createClass({
-	  displayName: "Projects",
+	  displayName: 'Projects',
 	
 	  getInitialState: function () {
 	    return { paragraph: 'Hover over image for more information' };
@@ -41707,104 +41690,104 @@
 	  },
 	  render: function () {
 	    return React.createElement(
-	      "div",
-	      null,
+	      'div',
+	      { style: { maxWidth: '100%' } },
 	      React.createElement(
-	        "h1",
+	        'h1',
 	        { style: { textAlign: 'center' } },
-	        "Personal Projects"
+	        'Personal Projects'
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "container center-block well", style: containerStyles },
+	        'div',
+	        { className: 'container center-block well', style: containerStyles },
 	        React.createElement(
-	          "div",
-	          { className: "row" },
+	          'div',
+	          { className: 'row' },
 	          React.createElement(
-	            "div",
-	            { className: "col-sm-4" },
-	            " ",
+	            'div',
+	            { className: 'col-sm-4' },
+	            ' ',
 	            React.createElement(
-	              "a",
-	              { target: "_blank", href: "https://realtime-voting-app.herokuapp.com/" },
-	              " ",
-	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/ci9xqjlngyjjok0/Voting%20App.jpg?dl=0',
-	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '0') }),
-	              " "
+	              'a',
+	              { target: '_blank', href: 'https://realtime-voting-app.herokuapp.com/' },
+	              ' ',
+	              React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/ci9xqjlngyjjok0/Voting%20App.jpg?dl=0',
+	                className: 'img-responsive img-rounded', onMouseOver: this.handleSelect.bind(this, '0') }),
+	              ' '
 	            ),
-	            " "
+	            ' '
 	          ),
 	          React.createElement(
-	            "div",
-	            { className: "col-sm-4" },
-	            " ",
+	            'div',
+	            { className: 'col-sm-4' },
+	            ' ',
 	            React.createElement(
-	              "a",
-	              { target: "_blank", href: "http://codepen.io/doppleganger07/full/RRwRMj/" },
-	              " ",
-	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/r3rq78qb74uae5k/Simon%20Says.jpg?dl=0',
-	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '1') }),
-	              " "
+	              'a',
+	              { target: '_blank', href: 'http://codepen.io/doppleganger07/full/RRwRMj/' },
+	              ' ',
+	              React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/r3rq78qb74uae5k/Simon%20Says.jpg?dl=0',
+	                className: 'img-responsive img-rounded', onMouseOver: this.handleSelect.bind(this, '1') }),
+	              ' '
 	            ),
-	            " "
+	            ' '
 	          ),
 	          React.createElement(
-	            "div",
-	            { className: "col-sm-4" },
-	            " ",
+	            'div',
+	            { className: 'col-sm-4' },
+	            ' ',
 	            React.createElement(
-	              "a",
-	              { target: "_blank", href: "http://codepen.io/doppleganger07/full/PzoOrd/" },
-	              " ",
-	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/rxwoqc160qw6gdb/calculator.PNG?dl=0',
-	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '2') }),
-	              " "
+	              'a',
+	              { target: '_blank', href: 'http://codepen.io/doppleganger07/full/PzoOrd/' },
+	              ' ',
+	              React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/rxwoqc160qw6gdb/calculator.PNG?dl=0',
+	                className: 'img-responsive img-rounded', onMouseOver: this.handleSelect.bind(this, '2') }),
+	              ' '
 	            ),
-	            " "
+	            ' '
 	          )
 	        ),
-	        React.createElement("br", null),
+	        React.createElement('br', null),
 	        React.createElement(
-	          "div",
-	          { className: "row" },
+	          'div',
+	          { className: 'row' },
 	          React.createElement(
-	            "div",
-	            { className: "col-sm-4" },
-	            " ",
+	            'div',
+	            { className: 'col-sm-4' },
+	            ' ',
 	            React.createElement(
-	              "a",
-	              { target: "_blank", href: "http://codepen.io/doppleganger07/full/dXyXBZ/" },
-	              " ",
-	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/y5e1ea4nwuu4b8i/Weather%20App.jpg?dl=0',
-	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '3') }),
-	              " "
+	              'a',
+	              { target: '_blank', href: 'http://codepen.io/doppleganger07/full/dXyXBZ/' },
+	              ' ',
+	              React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/y5e1ea4nwuu4b8i/Weather%20App.jpg?dl=0',
+	                className: 'img-responsive img-rounded', onMouseOver: this.handleSelect.bind(this, '3') }),
+	              ' '
 	            ),
-	            " "
+	            ' '
 	          ),
 	          React.createElement(
-	            "div",
-	            { className: "col-sm-4" },
-	            " ",
+	            'div',
+	            { className: 'col-sm-4' },
+	            ' ',
 	            React.createElement(
-	              "a",
-	              { target: "_blank", href: "https://github.com/Cgaye/react-portfolio" },
-	              " ",
-	              React.createElement("img", { src: 'https://dl.dropboxusercontent.com/s/tt4gqj3x6oanemn/Default.jpg?dl=0',
-	                className: "img-responsive img-rounded", onMouseOver: this.handleSelect.bind(this, '4') }),
-	              " "
+	              'a',
+	              { target: '_blank', href: 'https://github.com/Cgaye/react-portfolio' },
+	              ' ',
+	              React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/tt4gqj3x6oanemn/Default.jpg?dl=0',
+	                className: 'img-responsive img-rounded', onMouseOver: this.handleSelect.bind(this, '4') }),
+	              ' '
 	            ),
-	            " "
+	            ' '
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "container well" },
+	        'div',
+	        { className: 'container well' },
 	        React.createElement(
-	          "p",
-	          { id: "project" },
+	          'p',
+	          { id: 'project' },
 	          this.state.paragraph,
-	          " "
+	          ' '
 	        )
 	      )
 	    );
@@ -41831,10 +41814,10 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/zeqovls4mcodxbh/New%20About.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' } }),
+	      React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/zeqovls4mcodxbh/New%20About.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2', maxWidth: '100%', maxHeight: '1000px' } }),
 	      React.createElement(
 	        'div',
-	        { className: 'container well', style: { textAlign: 'center', position: 'absolute', top: '350px', left: '400px', fontFamily: 'Arial-Black' } },
+	        { className: 'container well', style: { textAlign: 'center', position: 'absolute', top: '250px', left: '200px', fontFamily: 'Arial-Black', maxWidth: '100%' } },
 	        React.createElement(
 	          'h1',
 	          null,
@@ -41864,8 +41847,7 @@
 	        React.createElement('br', null),
 	        'Express using Handlebars ',
 	        React.createElement('br', null),
-	        'Bootstrap ',
-	        React.createElement('br', null)
+	        'Bootstrap'
 	      )
 	    );
 	  }
@@ -42747,10 +42729,10 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/caolun723f8dojq/Contact.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' } }),
+	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/caolun723f8dojq/Contact.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2', maxHeight: '100%', maxWidth: '100%' } }),
 	            React.createElement(
 	                'div',
-	                { className: 'container well', style: { textAlign: 'center', position: 'absolute', top: '350px', left: '400px', fontFamily: 'Arial-Black' } },
+	                { className: 'container well', style: { textAlign: 'center', position: 'absolute', top: '350px', left: '200px', fontFamily: 'Arial-Black' } },
 	                React.createElement(
 	                    'h1',
 	                    null,
@@ -42773,6 +42755,12 @@
 	                        'a',
 	                        { target: '_blank', href: 'https://github.com/Cgaye' },
 	                        'GitHub'
+	                    ),
+	                    React.createElement('br', null),
+	                    React.createElement(
+	                        'p',
+	                        null,
+	                        ' Phone: 404-402-2857 '
 	                    )
 	                )
 	            )
@@ -42799,13 +42787,15 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0', style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' } }),
+	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0',
+	                style: { resizeMode: 'stretch', opacity: '0.2', maxWidth: '100%', height: '100%' }
+	            }),
 	            React.createElement(
 	                'div',
 	                { className: 'container center-block' },
 	                React.createElement(
 	                    'div',
-	                    { style: { position: 'absolute', top: '400px', left: '830px' } },
+	                    { style: { position: 'absolute', top: '400px', left: '630px' } },
 	                    React.createElement(
 	                        'div',
 	                        { style: { opacity: '1.0', textAlign: 'center', fontFamily: 'Arial-Black' } },
