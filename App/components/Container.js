@@ -7,7 +7,9 @@ var Default = require("./Default");
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
+
 var componentToRender = <Default key = {'default'}/>;
+var componentToRender = <Default key = {'default'} />;
 
 var Container = React.createClass({
     getInitialState: function() {
@@ -20,7 +22,9 @@ var Container = React.createClass({
    
     componentWillUpdate: function (nextProps, nextState) {
 
-        
+
+        var page = this.state.page;
+
         if(nextState.page == 'Default') { 
             componentToRender = <Default key = {nextState.page} />;
             }
@@ -56,11 +60,13 @@ var Container = React.createClass({
           transitionAppear={true} 
           transitionAppearTimeout={500}
           transitionEnterTimeout={500} 
+           transitionEnterTimeout={700}
           transitionLeaveTimeout={500}>
         
                {componentToRender} 
             
              </ReactCSSTransitionGroup>
+
             </div>
             
             );

@@ -1,5 +1,5 @@
 var React = require("react");
-
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 
@@ -11,7 +11,11 @@ var Default = React.createClass({
             <div>
             
              <img src = 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0' 
+
              style = {{resizeMode: 'stretch', opacity: '0.2', maxWidth: '100%', height: '100%'}} 
+
+             style = {{flex: 1, resizeMode: 'stretch', opacity: '0.2'}} 
+
              />
             <div className = 'container center-block'>
            

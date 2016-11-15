@@ -21949,6 +21949,7 @@
 	var ReactCSSTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 429);
 	
 	var componentToRender = React.createElement(Default, { key: 'default' });
+	var componentToRender = React.createElement(Default, { key: 'default' });
 	
 	var Container = React.createClass({
 	    displayName: "Container",
@@ -21960,6 +21961,8 @@
 	    },
 	
 	    componentWillUpdate: function (nextProps, nextState) {
+	
+	        var page = this.state.page;
 	
 	        if (nextState.page == 'Default') {
 	            componentToRender = React.createElement(Default, { key: nextState.page });
@@ -21994,6 +21997,7 @@
 	                    transitionAppear: true,
 	                    transitionAppearTimeout: 500,
 	                    transitionEnterTimeout: 500,
+	                    transitionEnterTimeout: 700,
 	                    transitionLeaveTimeout: 500 },
 	                componentToRender
 	            )
@@ -42779,6 +42783,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(/*! react */ 1);
+	var ReactCSSTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 429);
 	
 	var Default = React.createClass({
 	    displayName: 'Default',
@@ -42788,7 +42793,11 @@
 	            'div',
 	            null,
 	            React.createElement('img', { src: 'https://dl.dropboxusercontent.com/s/nrb9u22v82n6e9c/New%20Default.jpg?dl=0',
-	                style: { resizeMode: 'stretch', opacity: '0.2', maxWidth: '100%', height: '100%' }
+	
+	                style: { resizeMode: 'stretch', opacity: '0.2', maxWidth: '100%', height: '100%' },
+	
+	                style: { flex: 1, resizeMode: 'stretch', opacity: '0.2' }
+	
 	            }),
 	            React.createElement(
 	                'div',
